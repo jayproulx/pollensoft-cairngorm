@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" width="{progressBar.width}">
+	<mx:Metadata>
+		[Event(name="cancel", type="flash.events.Event")]		
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+			
+			private function cancelButtonClick(event:MouseEvent):void {
+				dispatchEvent(new Event(Event.CANCEL));
+			}
+			
+			override public function set height(value:Number):void {
+				PopUpManager.centerPopUp(this);
+			}
+			
+			override public function set width(value:Number):void {
+				PopUpManager.centerPopUp(this);
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:ProgressBar id="progressBar" labelPlacement="top" indeterminate="true" mode="manual" width="100%" />
+	
+	<mx:ControlBar horizontalAlign="right">
+		<mx:Button id="cancelButton" label="Cancel" click="cancelButtonClick(event)" />
+	</mx:ControlBar>
+</mx:TitleWindow>

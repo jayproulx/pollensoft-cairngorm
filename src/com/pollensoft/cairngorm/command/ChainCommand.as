@@ -15,7 +15,7 @@ package com.pollensoft.cairngorm.command
 	 * @see com.pollensoft.cairngorm.util.event.EventChain
 	 * @see com.pollensoft.cairngorm.util.event.ChainEvent
 	 */
-	public class ChainCommand implements ICommand, IResponder
+	public class ChainCommand implements ICommand
 	{
 		/**
 		 * The CairngormEvent that initiated this Command.
@@ -45,7 +45,7 @@ package com.pollensoft.cairngorm.command
 		 * 
 		 * @param data
 		 */		
-		public function result(data:Object):void
+		public function complete(data:Object):void
 		{
 			if(event is ChainEvent) {
 				var e:ChainEvent = event as ChainEvent;
@@ -61,7 +61,7 @@ package com.pollensoft.cairngorm.command
 		 * 
 		 * @param info
 		 */
-		public function fault(info:Object):void
+		public function fail(info:Object):void
 		{
 			if(event is ChainEvent) {
 				var e:ChainEvent = event as ChainEvent;

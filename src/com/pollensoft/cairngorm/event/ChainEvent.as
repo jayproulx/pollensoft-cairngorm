@@ -14,9 +14,14 @@ package com.pollensoft.cairngorm.event
 	 */
 	public class ChainEvent extends CairngormEvent implements IResponder
 	{
+		public static const PROGRESS:String = "progress";
+		public static const PROGRESS_COMPLETE:String = "progressComplete";
+		public static const PROGRESS_FAILED:String = "progressFailed";
+
 		public var required:Boolean;
 		public var chain:EventChain;
-		
+		public var origin:ChainEvent;
+
 		public function ChainEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
 		{
 			super(type, bubbles, cancelable);
